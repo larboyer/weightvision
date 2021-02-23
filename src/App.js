@@ -17,12 +17,31 @@ let data = [
 ];
 
 
+/* Just curious; wft does this syntax mean?
+const App = () => {
+*/
+
 function App() {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div className="App">
-      <header>
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>We now have Auth!</h1>
+        <h4>
+          Weight Vision
+        </h4>
+		<p>
+		Pick Date
+		</p>
+        <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+		<p>
+		Pick Weight
+		</p>
+		<NumericInput min={0} precision={1} />
+		<LineChart width={400} height={400} data={data}>
+			<Line type="monotone" dataKey="uv" stroke="#8884d8" />
+			<Line type="monotone" dataKey="pv" stroke="#288448" />
+		</LineChart>
       </header>
       <AmplifySignOut />
     </div>
@@ -30,36 +49,11 @@ function App() {
 }
 
 
-
-
 /*
 function doIt() {
 	console.log("test 001");
 }
 <DatePicker selected={startDate} onChange={doIt()} />
-*/
-
-/*
-const App = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Weight Vision
-        </p>
-		Pick Date
-        <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-		Pick Weight
-		<NumericInput min={0} precision={1} />
-		<LineChart width={400} height={400} data={data}>
-			<Line type="monotone" dataKey="uv" stroke="#8884d8" />
-			<Line type="monotone" dataKey="pv" stroke="#288448" />
-		</LineChart>
-      </header>
-    </div>
-  );
-};
 */
 
 // export default App;
