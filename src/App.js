@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import NumericInput from 'react-numeric-input';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 let data = [
 	{name: 'Page A', uv: 400, pv: 2400, amt: 1422},
@@ -15,6 +16,22 @@ let data = [
 	{name: 'Page D', uv: 400, pv: 1455, amt: 722}
 ];
 
+
+function App() {
+  return (
+    <div className="App">
+      <header>
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>We now have Auth!</h1>
+      </header>
+      <AmplifySignOut />
+    </div>
+  );
+}
+
+
+
+
 /*
 function doIt() {
 	console.log("test 001");
@@ -22,6 +39,7 @@ function doIt() {
 <DatePicker selected={startDate} onChange={doIt()} />
 */
 
+/*
 const App = () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
@@ -42,6 +60,8 @@ const App = () => {
     </div>
   );
 };
+*/
 
+// export default App;
+export default withAuthenticator(App);
 
-export default App;
