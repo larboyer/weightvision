@@ -17,10 +17,6 @@ let data = [
 ];
 
 
-/* Just curious; wft does this syntax mean?
-const App = () => {
-*/
-
 function App() {
   const [startDate, setStartDate] = useState(new Date());
   return (
